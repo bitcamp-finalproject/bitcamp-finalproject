@@ -1,3 +1,4 @@
+
 package bitcamp.app.service.impl;
 
 import java.util.HashMap;
@@ -46,7 +47,10 @@ public class DefaultMemberService implements MemberService{
   }
   @Override
   public Member get(int no) {
-    return memberDao.findByNo(no);
+    System.out.println(no);
+    Member m = memberDao.findByNo(no);
+    System.out.println(m);
+    return m;
   }
 
 

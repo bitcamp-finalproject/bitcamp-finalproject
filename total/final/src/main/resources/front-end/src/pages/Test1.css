@@ -1,33 +1,24 @@
-* {
-}
 
-div.col {
-  width: 100px;
-  height: 150px;
+.Test1.row {
+  width: 100%;
+  height: 140px;  
+  box-sizing: border-box;
+
+  background-color: #444357;
+
+  line-height: 140px;
   text-align: center;
-  vertical-align: middle;
-  background-color: white;
-  color: black;
 }
 
-div.col > div {
-  text-align: center;
-  vertical-align: middle;
-  color: black;
-  height: 100%;
-  border-color: 1px black;
+.Test1.row > div {
+  border: solid 1px #dddddd;
 }
 
-span {
-  width: 100px;
-  height: 150px;
-  text-align: center;
+.test-image {
+  width: 80%;
+  height: 80%;
+  border: solid 1px black;
+
+  margin: auto;
   vertical-align: middle;
-}
-
-#data-container {
-  width: 500px;
-  height: 500px;
-
-  border: 1px white;
 }

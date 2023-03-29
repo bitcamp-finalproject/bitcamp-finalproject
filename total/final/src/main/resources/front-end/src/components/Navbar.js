@@ -15,6 +15,9 @@ function Navbar() {
       <Link to="/Profile">
         <h1 id="title">Profile</h1>
       </Link>
+      <Link to="/Test1">
+        <h1 id="title">Test1</h1>
+      </Link>
       <div id="modal-back">
         <LoginModal />
       </div>

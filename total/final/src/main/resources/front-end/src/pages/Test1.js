@@ -10,34 +10,26 @@ function Test1() {
   const [hello, setHello] = useState("");
   
   useEffect(() => {
-    console.log("hhh");
     axios
-      .get("http://localhost:8080/api/" + 1)
-      .then(function(response) {setHello(response.data);
-      console.log(response.json);
+      .get("http://localhost:8080/api/" + 5)
+      .then(function(response) {
+        setHello(response.data);
+        console.log(response.data);
       })
       .catch((error) => console.log(error));
-  }, []);
-  console.log("hhh");
+  }, []);  
   return (
-    <Container>
-      <Row>
-        <Col><div><span>{hello.email}</span></div></Col>
-        <Col><div>2 of 6</div></Col>
-        <Col><div>3 of 6</div></Col>
-        <Col><div>4 of 6</div></Col>
-        <Col><div>5 of 6</div></Col>
-        <Col><div>6 of 6</div></Col>
-      </Row>
-      <Row>
-        <Col><div>1 of 6</div></Col>
-        <Col><div>2 of 6</div></Col>
-        <Col><div>3 of 6</div></Col>
-        <Col><div>4 of 6</div></Col>
-        <Col><div>5 of 6</div></Col>
-        <Col><div>6 of 6</div></Col>
-      </Row>
-    </Container>
+    
+    <div className="Test1 row">
+    <div className="col"><div className="test-image"></div></div>
+    <div className="col"><div className="test-name"><span>{hello.name}</span></div></div>
+    <div className="col">1</div>
+    <div className="col">1</div>
+    <div className="col">1</div>
+    <div className="col">1</div>  
+    <div className="col">1</div>
+    </div>
+
   );
 }
 

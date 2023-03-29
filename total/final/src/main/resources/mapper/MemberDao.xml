@@ -38,7 +38,7 @@
       email=#{email}
   </select>
   
-  <select id="findByNo" parameterType="int" resultType="member">
+  <select id="findByNo" parameterType="int" resultMap="memberMap">
     select
       member_no,
       name,
@@ -49,7 +49,6 @@
       addr,
       pt,
       info,
-      birth_dt,
       tel,
       state,
       auth
