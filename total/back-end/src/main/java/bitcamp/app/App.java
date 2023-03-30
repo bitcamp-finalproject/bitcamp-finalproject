@@ -3,10 +3,12 @@ package bitcamp.app;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+@PropertySource("classpath:/naver.properties")
 @EnableTransactionManagement
 @SpringBootApplication
 public class App implements WebMvcConfigurer{
