@@ -1,0 +1,10 @@
+.signup-modal-login,
+.login-modal-signup {
+  color: #406ed8;
+  cursor: pointer;
+}
+
+.signup-modal-login:hover,
+.login-modal-signup:hover {
+  text-decoration: underline;
+}
