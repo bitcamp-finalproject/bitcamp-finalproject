@@ -14,7 +14,7 @@ function MemberView(props) {
   const [data, setData] = useState({});
 
   useEffect(() => {
-    fetch("http://localhost:8080/admin/" + no)
+    fetch("http://223.130.129.169:8080/admin/" + no)
       .then((response) => response.json())
       .then((data) => {
         setData(data);

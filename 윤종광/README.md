@@ -734,11 +734,29 @@ AtomicReference는 또한 null 값도 참조할 수 있습니다.
 
 ### 2. Linux 환경에서 그림 생성
 
-simple_cmd.py 실행 요구사항
+_simple_cmd.py 실행 요구사항_
 
 1. Python 3.8 설치
 
-2. 깃 클론
+- 저장소 및 패키지 목록 업데이트:
+
+```bash
+sudo apt update
+```
+
+- 시스템을 업그레이드하고 필요한 종속성을 설치합니다:
+
+```bash
+sudo apt upgrade
+```
+
+- python3.8 및 python3.8-venv 패키지를 설치합니다:
+
+```bash
+sudo apt install python3.8 python3.8-venv
+```
+
+2. git repository 가져오기
 
 ```bash
 git clone https://github.com/AssemblyAI-Examples/stable-diffusion-keras.git
@@ -748,7 +766,11 @@ cd stable-diffusion-keras
 3. 가상 환경 설정
 
 ```bash
-   python -m venv venv
+apt-get install python3-venv
+```
+
+```bash
+python3 -m venv venv
 ```
 
 - Activate (MacOS/Linux)
@@ -766,20 +788,33 @@ source venv/bin/activate
 4. 라이브러리 설치
 
 ```bash
+pip install "setuptools<60.0"
+```
+
+```bash
+pip install --upgrade pip
+```
+
+```bash
 pip install -r requirements.txt
 ```
 
 5. PYTHONPATH 설정
 
-- Activate (MacOS/Linux)
+- MacOS/Linux
 
-~/.zshrc 에 아래 추가한다.
+```bash
+#1 .bashrc 편집
+nano ~/.bashrc
 
+#2 파일 끝에 내용 추가
+export PYTHONPATH=/root/git/stable-diffusion-keras/venv/lib/python3.8/site-packages:$PYTHONPATH
+
+#3 파일 저장하고 종료 후 적용을 위해 아래 입력
+source ~/.bashrc
 ```
-export PYTHONPATH="/Users/bitcamp/git/stable-diffusion-keras/venv/Lib/site-packages:$PYTHONPATH"
-```
 
-- Activate (Windows)
+- Windows
 
 ```
 1. 제어판 > 시스템 > 고급 시스템 설정 > 환경 변수를 엽니다.
@@ -788,9 +823,17 @@ export PYTHONPATH="/Users/bitcamp/git/stable-diffusion-keras/venv/Lib/site-packa
 4. 확인을 클릭하여 변경 사항을 저장하고 창을 닫습니다.
 ```
 
-### 3. 그림 생성 후 발생하는 에러
+6. CLI 환경 리눅스에서 이미지 보는 방법
 
-그림 생성 후 아래 에러 발생한다.
+```bash
+sudo apt-get install catimg
+
+catimg img.png
+```
+
+### 3. CPU 환경에서 그림 생성 후 발생하는 에러
+
+CPU 환경에서 그림 생성 후 아래 에러 발생한다.
 
 ```
 2023-04-12T22:52:41.693+09:00  INFO 2948 --- [nPool-worker-25] bitcamp.app.controller.BoardController   : stdError >>> 2023-04-12 22:46:27.577017: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cudart64_110.dll'; dlerror: cudart64_110.dll not found
@@ -820,4 +863,45 @@ Copy code
 pip install tensorflow-gpu
 설치 후, 프로그램을 다시 실행해 GPU 관련 에러가 해결되는지 확인하세요.
 자세한 내용은 TensorFlow GPU 지원 가이드를 참고하세요: https://www.tensorflow.org/install/gpu
+```
+
+# 4월13일 목
+
+## 작업내용
+
+### 1. GPU Server 생성 및 stable-diffusion 환경 세팅함
+
+## 시행착오 또는 기억할 것
+
+### 1. 리눅스에서 OpenJDK 17 설치 방법
+
+1. 기존에 설치된 패키지를 제거합니다.
+
+```bash
+sudo apt-get remove openjdk-17-jre-headless openjdk-17-jre openjdk-17-jdk-headless openjdk-17-jdk
+sudo apt-get autoremove
+```
+
+2. 다시 저장소를 추가하고 업데이트합니다.
+
+```bash
+sudo apt-get install -y software-properties-common
+sudo add-apt-repository ppa:openjdk-r/ppa
+sudo apt-get update
+```
+
+3. Java를 다시 설치합니다.
+
+```bash
+sudo apt-get install -y openjdk-17-jdk
+
+java -version
+```
+
+### 2. 리눅스에서 현재 실행중인 포트의 pid 확인 및 kill 하는 방법
+
+```bash
+lsof -i :3000
+
+kill $(sudo lsof -t -i :3000)
 ```

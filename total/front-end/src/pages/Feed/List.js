@@ -15,7 +15,7 @@ function List(props) {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/boards/auth`)
+      .get(`http://223.130.129.169:8080/boards/auth`)
       .then((response) => setAuth(response.data))
       .catch((error) => console.log(error));
   }, []);
@@ -39,7 +39,7 @@ function List(props) {
   }, [data]);
 
   async function loadData() {
-    const response = await axios.get("http://localhost:8080/boards", {
+    const response = await axios.get("http://223.130.129.169:8080/boards", {
       params: {
         page: data.length / 10,
       },

@@ -23,7 +23,7 @@ function CommentUtil(props) {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/reply/islike/" + props.commentNo)
+      .get("http://223.130.129.169:8080/reply/islike/" + props.commentNo)
       .then((response) => {
         if (response.data.data === "like") {
           setIsLike(true);
@@ -41,7 +41,7 @@ function CommentUtil(props) {
 
     if (isLike) {
       axios
-        .delete("http://localhost:8080/reply/like/" + props.commentNo)
+        .delete("http://223.130.129.169:8080/reply/like/" + props.commentNo)
         .then((response) => {
           console.log(response);
           setLikeUpdate(!likeUpdate);
@@ -53,7 +53,7 @@ function CommentUtil(props) {
       console.log(props.replyNo);
       axios
         .post(
-          "http://localhost:8080/reply/like",
+          "http://223.130.129.169:8080/reply/like",
           {},
           {
             params: {
@@ -73,7 +73,7 @@ function CommentUtil(props) {
 
   function CommentDel() {
     axios
-      .delete(`http://localhost:8080/reply/delete/${props.commentNo}`)
+      .delete(`http://223.130.129.169:8080/reply/delete/${props.commentNo}`)
       .then((response) => {
         if (response.data.status === "success") {
           handleSubmit();
@@ -86,7 +86,7 @@ function CommentUtil(props) {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/reply/like/${props.commentNo}`)
+      .get(`http://223.130.129.169:8080/reply/like/${props.commentNo}`)
       .then((response) => setData(response.data))
       .catch((error) => console.log(error));
   }, [likeUpdate]);
@@ -108,10 +108,10 @@ function CommentUtil(props) {
           onClick={handleLike}
         ></div>
         {data[1] !== props.writerNo && (
-        <div id="feed-modal-commentreport" onClick={openModal}>
-          신고하기
-        </div>
-          )}
+          <div id="feed-modal-commentreport" onClick={openModal}>
+            신고하기
+          </div>
+        )}
         {data[1] === props.writerNo && (
           <div id="feed-modal-commentdelete" onClick={CommentDel}>
             삭제하기

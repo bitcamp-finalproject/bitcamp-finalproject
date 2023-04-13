@@ -8,7 +8,7 @@ function FaqType({ onTypeSelected }) {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/faqType`)
+      .get(`http://223.130.129.169:8080/faqType`)
       .then((response) => {
         setDbData(response.data);
       })
@@ -57,7 +57,7 @@ export default FaqType;
 
 //   useEffect(() => {
 //     axios
-//       .get(`http://localhost:8080/faqType`)
+//       .get(`http://223.130.129.169:8080/faqType`)
 //       .then((response) => {
 //         setDbData(response.data);
 //       })

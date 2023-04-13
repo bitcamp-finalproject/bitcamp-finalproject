@@ -33,7 +33,7 @@ function AuthModal(props) {
     handleClose();
 
     axios
-      .get("http://localhost:8080/auth/logout")
+      .get("http://223.130.129.169:8080/auth/logout")
       .then((response) => {
         setCurrentUser(null);
         window.location.reload();
@@ -128,7 +128,7 @@ function AuthModal(props) {
               onClick={(e) => {
                 e.preventDefault();
                 axios
-                  .get("http://localhost:8080/auth/user")
+                  .get("http://223.130.129.169:8080/auth/user")
                   .then((response) => {
                     navigate("/Profile", {
                       state: { no: response.data.data.no },

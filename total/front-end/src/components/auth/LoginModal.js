@@ -49,7 +49,7 @@ function LoginModal(props) {
 
     axios
       .post(
-        "http://localhost:8080/auth/login",
+        "http://223.130.129.169:8080/auth/login",
         {},
         {
           params: {

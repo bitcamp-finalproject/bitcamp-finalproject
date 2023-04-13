@@ -48,7 +48,7 @@ function PostModal(props) {
     }, 3000);
     // return; //spinner 테스트시 사용
 
-    axios("http://localhost:8080/auth/user")
+    axios("http://223.130.129.169:8080/auth/user")
       .then((response) => {
         if (response.data.status == "success") {
           setCurrentUser(response.data.data);
@@ -71,7 +71,7 @@ function PostModal(props) {
 
     axios
       .post(
-        "http://localhost:8080/boards",
+        "http://223.130.129.169:8080/boards",
         {},
         {
           params: {

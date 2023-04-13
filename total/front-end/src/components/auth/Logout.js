@@ -10,7 +10,7 @@ function Logout(props) {
 
   const handleClickLogout = () => {
     axios
-      .get("http://localhost:8080/auth/logout")
+      .get("http://223.130.129.169:8080/auth/logout")
       .then((response) => {
         setCurrentUser(null);
         navigate("/");

@@ -9,7 +9,7 @@ function FaqTitleContent({ selectedType }) {
     if (selectedType) {
       axios
         .get(
-          `http://localhost:8080/faqTitleContent?faq_type_no=${selectedType}`
+          `http://223.130.129.169:8080/faqTitleContent?faq_type_no=${selectedType}`
         )
         .then((response) => {
           // console.log(response.data);
@@ -55,7 +55,7 @@ export default FaqTitleContent;
 // useEffect(() => {
 //   if (selectedType) {
 //     axios
-//       .get(`http://localhost:8080/faqTitleContent`, {
+//       .get(`http://223.130.129.169:8080/faqTitleContent`, {
 //         params: { faq_type_no: selectedType },
 //       })
 //       .then((response) => {

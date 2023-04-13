@@ -13,7 +13,7 @@ function Card() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await axios.get("http://localhost:8080/boards");
+        const response = await axios.get("http://223.130.129.169:8080/boards");
         setImage(response.data);
         setContent(response.data.contents);
         // console.log(image);

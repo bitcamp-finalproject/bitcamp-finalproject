@@ -12,7 +12,7 @@ function ProfileUpper(props) {
   const [point, setPoint] = useState();
   const openFollowingModal = () => {
     axios
-      .get("http://localhost:8080/follow/" + props.member.no)
+      .get("http://223.130.129.169:8080/follow/" + props.member.no)
       .then((response) => {
         setFollowingList(response.data.data);
         if (response.data.data.length > 0) {
@@ -34,7 +34,7 @@ function ProfileUpper(props) {
   const count = 100;
 
   axios
-    .get("http://localhost:8080/point/member/" + props.member.no)
+    .get("http://223.130.129.169:8080/point/member/" + props.member.no)
     .then((response) => {
       setPoint(response.data);
     });

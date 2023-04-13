@@ -11,7 +11,7 @@ function Navbars(props) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const result = await axios("http://localhost:8080/auth/user");
+        const result = await axios("http://223.130.129.169:8080/auth/user");
         if (result.data.status == "success") {
           setCurrentUser(result.data.data);
         } else {

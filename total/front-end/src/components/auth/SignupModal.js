@@ -29,7 +29,7 @@ function SignupModal(props) {
     }
 
     axios
-      .get("http://localhost:8080/auth/checkemail", {
+      .get("http://223.130.129.169:8080/auth/checkemail", {
         params: { email: email },
       })
       .then((response) => {
@@ -69,7 +69,7 @@ function SignupModal(props) {
     }
 
     axios
-      .get("http://localhost:8080/auth/checknickname", {
+      .get("http://223.130.129.169:8080/auth/checknickname", {
         params: { nickname: nickname },
       })
       .then((response) => {
@@ -138,7 +138,7 @@ function SignupModal(props) {
 
     axios
       .post(
-        "http://localhost:8080/auth/signup",
+        "http://223.130.129.169:8080/auth/signup",
         {},
         {
           params: {

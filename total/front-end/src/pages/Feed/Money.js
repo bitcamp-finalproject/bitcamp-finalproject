@@ -10,7 +10,7 @@ function Money(props) {
     const value = event.target.value;
     if (/^\d*$/.test(value)) {
       // 입력 값이 숫자인 경우
-      if(parseInt(value) > parseInt(mypoint)) {
+      if (parseInt(value) > parseInt(mypoint)) {
         setTextValue(mypoint.toString());
       } else {
         setTextValue(value);
@@ -26,7 +26,7 @@ function Money(props) {
 
     axios
       .post(
-        "http://localhost:8080/point",
+        "http://223.130.129.169:8080/point",
         {},
         {
           params: {
@@ -51,7 +51,7 @@ function Money(props) {
   };
 
   useEffect(() => {
-    axios.get("http://localhost:8080/point/member").then((response) => {
+    axios.get("http://223.130.129.169:8080/point/member").then((response) => {
       setMyPoint(response.data);
     });
   }, [isUpdated]);

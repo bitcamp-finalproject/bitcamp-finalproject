@@ -45,7 +45,7 @@ function FeedModal(props) {
 
     axios
       .post(
-        "http://localhost:8080/reply",
+        "http://223.130.129.169:8080/reply",
         {},
         {
           params: {
@@ -77,14 +77,16 @@ function FeedModal(props) {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/reply/${boardNo}`)
+      .get(`http://223.130.129.169:8080/reply/${boardNo}`)
       .then((response) => setData(response.data))
       .catch((error) => console.log(error));
   }, [isUpdated]);
 
-  axios.get("http://localhost:8080/point/board/" + boardNo).then((response) => {
-    setPoint(response.data);
-  });
+  axios
+    .get("http://223.130.129.169:8080/point/board/" + boardNo)
+    .then((response) => {
+      setPoint(response.data);
+    });
 
   const numberWithCommas = (number) => {
     // 천의 자리마다 , 찍기
